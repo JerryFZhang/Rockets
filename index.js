@@ -19,11 +19,14 @@ app.use(bodyParser.urlencoded({
 }))
 
 
-
 app.get('/rocket', function (req, res) {
     console.log(req.body)
-
-            res.send("index")
+    LaunchJS.get().then(data => {
+            res.send(JSON.stringify(data))
+        })
+        .catch(err => {
+            console.log(err)
+        })
 })
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
