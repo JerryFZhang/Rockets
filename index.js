@@ -18,6 +18,23 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
+app.get('/', function (req, res) {
+  console.log(req.body)
+  // TODO: Parse location in request JSON.
+  LaunchJS.get().then(data => {
+    var obj = {
+      version: version,
+      data: data
+    }
+    res.render('index', obj)
+    console.log("here")
+    console.log(data)
+})
+.catch(err => {
+    console.log(err)
+})
+  
+})
 
 app.get('/rocket', function (req, res) {
     console.log(req.body)
