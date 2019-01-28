@@ -26,11 +26,10 @@ app.get('/', function (req, res) {
       data: data
     }
     res.render('index', obj)
-})
-.catch(err => {
+    })
+    .catch(err => {
     console.log(err)
-})
-  
+    })
 })
 
 app.get('/rocket', function (req, res) {
