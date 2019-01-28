@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('partial/no-script'); %>
+
+</head>
+
+<body class="bg">
+        <div class="container mt-3" style="position: relative;">
+        <% data.launches.forEach(function(launch){ %>
+        <ul><li><%= launch.name %></li>
+        <li><%= launch.isostart %></li>
+        <li><%= launch.location.name %></li>
+        <li><%= launch.rocket.name %></li>
+        <li><%= launch.rocket.wikiURL %></li>
+        <li><%= launch.lsp.name %></li>
+        <li><%= launch.lsp.wikiURL %></li>
+        <li><%= launch.missions %></li></ul>
+        <% }); %>
+
+        </div>
+    <footer class="text-muted text-center mb-3">
+        <small>Rocket Tracker V
+            <%= version %></small>
+    </footer>
+</body>
+</html>
