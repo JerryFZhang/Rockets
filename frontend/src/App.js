@@ -1,11 +1,8 @@
 // /client/App.js
 import React, { Component } from "react";
-// import Linkable from './Linkable
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
-import ReactDOM from 'react-dom';
+import Linkable from './Linkable'
 import Moment from 'react-moment';
-
+import { Card, CardImg, CardText, CardBody, CardTitle, CardFooter} from 'reactstrap';
 class App extends Component {
   // initialize our state 
   state = {
@@ -65,24 +62,24 @@ class App extends Component {
       console.log(this.state);
       console.log(launches);
       return (
-      <div className="row text-left">
+      <div className="row pt-5">
          { 
            launches == undefined || launches.length <= 0  ? "NO ENTRIES"
-            : launches.map(launch => (
-       <div className="col-xl-4 col-lg-6 col-md-6 card-group mb-3">
+            : launches.map((launch, index)  => (
+       <div className="col-xl-6 col-lg-6 col-md-12 card-group mb-3">
        <Card>
-       <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-       <CardBody>
-       <CardTitle><b>{ launch.name }</b></CardTitle>
-       <CardSubtitle>Launch time:  <Moment format="lll">{ launch.isostart }
-       </Moment> (<Moment fromNow>{ launch.isostart }</Moment>) </CardSubtitle>
+        <CardBody>
+       <CardTitle><b># {index + 1}</b></CardTitle>
+       <CardImg top width="100%" src={launch.rocket.imageURL} alt="Card image cap" />
+       <CardTitle className="pt-3"><b>{ launch.name }</b></CardTitle>
        <CardText>
-            {/* <Linkable ></Linkable> */}
-            <p>Location: { launch.location.name }</p>
-            <p>Rocket : <a href ="{ launch.rocket.wikiURL }" >{ launch.rocket.name }</a></p>
-            <p>Agency: <a href ="{ launch.lsp.wikiURL }" >{ launch.lsp.name }</a></p>
+            <p>Rocket : <Linkable props={launch.rocket}></Linkable></p>
+            <p>Location: <Linkable props={launch.location}></Linkable></p>
+            <p>Launch Pad: <Linkable props={launch.location.pads[0]}></Linkable></p>
+            <p>Agency:  <Linkable props={launch.lsp}></Linkable></p>
         </CardText>
-        <Button>Button</Button>
+        <CardFooter className="text-muted"> Launch time:  <Moment format="lll">{ launch.isostart }
+       </Moment> (<Moment fromNow>{ launch.isostart }</Moment>) </CardFooter>
         </CardBody>
         </Card>
         </div>
