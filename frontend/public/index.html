@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-    <title>Rocket Tracker</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="theme-color" content="#000000" />
-    <!--
+  <title>Rocket Tracker</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="theme-color" content="#000000" />
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -23,17 +23,57 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!--css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=" crossorigin="anonymous" />
-    <link rel="stylesheet/less" type="text/css" href="/assets/css/index.less" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
-    <!--js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha256-63ld7aiYP6UxBifJWEzz87ldJyVnETUABZAYs5Qcsmc=" crossorigin="anonymous"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" integrity="sha256-j93v7jDprdkNOGaRtTrZJ2h0VK6nJy29Qk3+zcHOv+0=" crossorigin="anonymous"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" integrity="sha256-CutOzxCRucUsn6C6TcEYsauvvYilEniTXldPa6/wu0k=" crossorigin="anonymous"></script>
+  <!--css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha256-azvvU9xKluwHFJ0Cpgtf0CYzK7zgtOznnzxV4924X1w=" crossorigin="anonymous" />
+  <link rel="stylesheet/less" type="text/css" href="/assets/css/index.less" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <!--js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha256-63ld7aiYP6UxBifJWEzz87ldJyVnETUABZAYs5Qcsmc="
+    crossorigin="anonymous"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" integrity="sha256-j93v7jDprdkNOGaRtTrZJ2h0VK6nJy29Qk3+zcHOv+0="
+    crossorigin="anonymous"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" integrity="sha256-CutOzxCRucUsn6C6TcEYsauvvYilEniTXldPa6/wu0k="
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+      }
+
+      .noscript-overlay {
+        background-color: white;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2000;
+      }
+
+      .noscript-text {
+        margin: 50px 50px;
+      }
+
+      .noscript-font {
+        color: #333;
+      }
+    </style>
+    <div class="noscript-overlay">
+      <div class="noscript-text">
+        <h1 class="noscript-font">
+          This website requires JavaScript to display graphical content.
+        </h1>
+        <p class="noscript-font"> <strong>Please check your browser settings and turn on JavaScript.</strong> </p>
+        <p class="noscript-font">If you can't find the setting, try searching with your browser name (Chrome, Firefox,
+          etc.) and "turning on JavaScript".</p>
+        <p class="noscript-font">We do not track you over the web whatsoever.</p>
+      </div>
+    </div>
+  </noscript>
   <div id="root" class="container mt-3"></div>
   <!--
     This HTML file is a template.
@@ -46,4 +86,5 @@
     To create a production bundle, use `npm run build` or `yarn build`.
   -->
 </body>
+
 </html>
