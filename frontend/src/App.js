@@ -69,7 +69,7 @@ class App extends Component {
        <div className="col-xl-6 col-lg-6 col-md-12 card-group mb-3">
        <Card>
         <CardBody>
-       <CardTitle><b># {index + 1}</b></CardTitle>
+       <CardTitle><b>#{index + 1}</b></CardTitle>
        <CardImg top width="100%" src={launch.rocket.imageURL} alt="Card image cap" />
        <CardTitle className="pt-3"><b>{ launch.name }</b></CardTitle>
        <CardText>
