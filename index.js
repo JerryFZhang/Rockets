@@ -7,6 +7,14 @@ const PORT = serverConfig.port || 3001
 var path = require('path')
 const launch = require('./launch.js')
 const LaunchJS = new launch()
+var cors = require('cors');
+
+// use it before all route definitions
+app.use(cors({
+    origin: 'http://localhost:3001'
+    //React App destination is on port 3001
+    //make this a config later
+}));
 
 var bodyParser = require('body-parser')
 // set the view engine to ejs
@@ -25,6 +33,7 @@ app.get('/', function (req, res) {
       version: version,
       data: data
     }
+    console.log("data")
     res.render('index', obj)
     })
     .catch(err => {
@@ -35,6 +44,7 @@ app.get('/', function (req, res) {
 app.get('/rocket', function (req, res) {
     console.log(req.body)
     LaunchJS.get().then(data => {
+        console.log("data")
             res.send(JSON.stringify(data))
         })
         .catch(err => {
