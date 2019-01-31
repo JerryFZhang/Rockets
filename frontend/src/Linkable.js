@@ -3,7 +3,6 @@ import React from "react";
 class Linkable extends React.Component {
     constructor(props) {
       super(props);
-      console.log(props.props)
       this.obj = props.props
       this.state = {isLinkable: null};
       (this.obj.wikiURL) ? this.setState({isLinkable: true}) : this.setState({isLinkable: false})
