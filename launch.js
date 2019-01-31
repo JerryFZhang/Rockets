@@ -4,6 +4,7 @@ const queryString = require("query-string")
 class LaunchJS {
     constructor() {
         this.timeoutVal = 20000
+        // added different types of reques parameters later
     }
     timeout(milliseconds) {
         if (milliseconds) {
@@ -14,7 +15,7 @@ class LaunchJS {
         return this
     }
     _generateReqUrl() {
-        this.url = `https://launchlibrary.net/1.4/launch/next/10`
+        this.url = `http://localhost:3000/example.json`
     }
     get() {
         console.log("get")
