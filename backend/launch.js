@@ -15,7 +15,8 @@ class LaunchJS {
         return this
     }
     _generateReqUrl() {
-        this.url = `http://localhost:3000/example.json`
+        // this.url = `http://localhost:3000/example.json` //For testing purposes
+        this.url = `https://launchlibrary.net/1.4/launch/next/20`
     }
     get() {
         console.log("get")
