@@ -21,7 +21,6 @@ class LaunchJS {
         this.url = `https://launchlibrary.net/1.4/launch/next/20`
     }
     get() {
-        console.log("get")
         return new Promise((resolve, reject) => {
             this._generateReqUrl()
             req({
@@ -30,18 +29,15 @@ class LaunchJS {
                 timeout: this.timeoutVal
             }, (err, res, body) => {
                 if (err) {
-                    console.log('err')
                     reject(`Launch data cannot be retrieved. ERROR: ${err}`)
                     return
                 }
                 if (res.statusCode !== 200) {
-                    console.log('err')
                     reject(`Launch data cannot be retrieved. Response: ${res.statusCode} ${
                 res.statusMessage
               }`)
                     return
                 }
-//                console.log(body)
                 resolve(body)
             })
         })
