@@ -11,9 +11,6 @@
     border: @border-light;
     background-color: #ffffff;
     transition: all .2s ease-in-out;
-    .cell {
-        hyphens: auto
-    }
     &:hover {
         -ms-transform: translate(0, -2px);
         /* IE 9 */
@@ -24,12 +21,6 @@
         box-shadow: @shadow-hover;
     }
 }
-
-
-.card-img-top {
-    box-shadow: @shadow;
-}
-
 .card-body {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -116,7 +107,7 @@
 
 .card-img-top {
     width: 100%;
-    border-top-left-radius: calc(0.25rem - 1px);
+    border-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
 }
 
