@@ -1,13 +1,17 @@
 // /client/App.js
 import React, { Component } from "react";
-import axios from "axios";
+// import Linkable from './Linkable
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import ReactDOM from 'react-dom';
+import Moment from 'react-moment';
 
 class App extends Component {
   // initialize our state 
   state = {
     data: {},
     id: 0,
-    message: null,
+    browserLanguage: null,
     intervalIsSet: false,
     isLoaded:null
   };
@@ -20,6 +24,9 @@ class App extends Component {
     if (!this.state.intervalIsSet) {
       let interval = setInterval(this.getData, 1000);
       this.setState({ intervalIsSet: interval });
+    }
+    if (navigator.language) {
+      this.setState({ browserLanguage: navigator.language });
     }
   }
 
@@ -57,24 +64,30 @@ class App extends Component {
       const launches  = this.state.data.launches;
       console.log(this.state);
       console.log(launches);
-      //  return <div><pre>{JSON.stringify(data, null, 2) }</pre></div>;
-   return (
-        <ul>
+      return (
+      <div className="row text-left">
          { 
            launches == undefined || launches.length <= 0  ? "NO ENTRIES"
             : launches.map(launch => (
-                 <ul><li>{ launch.name }</li>
-                 <li>{ launch.isostart }</li>
-                 <li>{ launch.location.name }</li>
-                 <li>{ launch.rocket.name }</li>
-                 <li>{ launch.rocket.wikiURL }</li>
-                 <li>{ launch.lsp.name }</li>
-                 <li>{ launch.lsp.wikiURL }</li>
-                 {/* <li>{ launch.missions }</li>*/}
-                                    </ul> 
-             ))
-             }
-       </ul>
+       <div className="col-xl-4 col-lg-6 col-md-6 card-group mb-3">
+       <Card>
+       <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+       <CardBody>
+       <CardTitle><b>{ launch.name }</b></CardTitle>
+       <CardSubtitle>Launch time:  <Moment format="lll">{ launch.isostart }
+       </Moment> (<Moment fromNow>{ launch.isostart }</Moment>) </CardSubtitle>
+       <CardText>
+            {/* <Linkable ></Linkable> */}
+            <p>Location: { launch.location.name }</p>
+            <p>Rocket : <a href ="{ launch.rocket.wikiURL }" >{ launch.rocket.name }</a></p>
+            <p>Agency: <a href ="{ launch.lsp.wikiURL }" >{ launch.lsp.name }</a></p>
+        </CardText>
+        <Button>Button</Button>
+        </CardBody>
+        </Card>
+        </div>
+        ))}
+        </div>
    );
   }
 }
