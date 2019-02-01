@@ -1,22 +1,18 @@
 import React from "react"
 
+// The linkable class parses all the objects with wikiURL and return component with link.
 class Linkable extends React.Component {
     constructor(props) {
       super(props);
       this.obj = props.props
-      this.state = {isLinkable: null}
-    }
-
-    componentDidMount() {
-      (this.obj.wikiURL) ? this.setState({isLinkable: true}) : this.setState({isLinkable: false})
     }
 
     render() {
       const isLinkable = this.obj.wikiURL
-      let entry;
-      (isLinkable) ? entry = <a href={this.obj.wikiURL} target="_blank" rel="noopener noreferrer">{this.obj.name}</a> : entry = this.obj.name
+      let component;
+      (isLinkable) ? component = <a href={this.obj.wikiURL} target="_blank" rel="noopener noreferrer">{this.obj.name}</a> : component = this.obj.name
       return (
-        <span>{entry}</span>
+        <span>{component}</span>
       );
     }
   }

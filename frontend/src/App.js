@@ -75,7 +75,7 @@ class App extends Component {
         </Card>
         </div>
         ))}
-        </div>
+    </div>
    );
   }
 }
