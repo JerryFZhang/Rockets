@@ -1,10 +1,13 @@
-import React from "react";
+import React from "react"
 
 class Linkable extends React.Component {
     constructor(props) {
       super(props);
       this.obj = props.props
-      this.state = {isLinkable: null};
+      this.state = {isLinkable: null}
+    }
+
+    componentDidMount() {
       (this.obj.wikiURL) ? this.setState({isLinkable: true}) : this.setState({isLinkable: false})
     }
 

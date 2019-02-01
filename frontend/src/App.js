@@ -57,17 +57,17 @@ class App extends Component {
          {
            launches === undefined || launches.length <= 0  ? 'NO ENTRIES'
             : launches.map((launch, index)  => (
-       <div className='col-xl-6 col-lg-6 col-md-12 card-group mb-3'>
+       <div className='col-xl-6 col-lg-6 col-md-12 card-group mb-3' key={index}>
        <Card>
         <CardBody>
        <CardTitle><b>#{index + 1}</b></CardTitle>
        <CardImg top width='100%' src={launch.rocket.imageURL} alt='Card image cap' />
-       <CardTitle className='pt-3'><b>{ launch.name }</b></CardTitle>
+       <CardTitle className='pt-3'><b><Linkable props={launch}></Linkable></b></CardTitle>
        <CardText>
-            <p>Rocket : <Linkable props={launch.rocket}></Linkable></p>
-            <p>Location: <Linkable props={launch.location}></Linkable></p>
-            <p>Launch Pad: <Linkable props={launch.location.pads[0]}></Linkable></p>
-            <p>Agency:  <Linkable props={launch.lsp}></Linkable></p>
+            Rocket : <Linkable props={launch.rocket}></Linkable><br />
+            Location: <Linkable props={launch.location}></Linkable><br />
+            Launch Pad: <Linkable props={launch.location.pads[0]}></Linkable><br />
+            Agency:  <Linkable props={launch.lsp}></Linkable>
         </CardText>
         <CardFooter className='text-muted'> Launch time:  <Moment format='lll'>{ launch.isostart }
        </Moment> (<Moment fromNow>{ launch.isostart }</Moment>) </CardFooter>
