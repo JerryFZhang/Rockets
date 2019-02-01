@@ -11,7 +11,7 @@ class Linkable extends React.Component {
     render() {
       const isLinkable = this.obj.wikiURL
       let entry;
-      (isLinkable) ? entry = <a href={this.obj.wikiURL} target="_blank">{this.obj.name}</a> : entry = this.obj.name
+      (isLinkable) ? entry = <a href={this.obj.wikiURL} target="_blank" rel="noopener noreferrer">{this.obj.name}</a> : entry = this.obj.name
       return (
         <span>{entry}</span>
       );

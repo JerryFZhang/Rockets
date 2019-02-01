@@ -55,7 +55,7 @@ class App extends Component {
       return (
       <div className='row pt-5'>
          {
-           launches == undefined || launches.length <= 0  ? 'NO ENTRIES'
+           launches === undefined || launches.length <= 0  ? 'NO ENTRIES'
             : launches.map((launch, index)  => (
        <div className='col-xl-6 col-lg-6 col-md-12 card-group mb-3'>
        <Card>
