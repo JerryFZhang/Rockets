@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 
-//Load server config for future deployment
+// Load server config for future deployment
 var serverConfig = require('./config.js').serverConfig
 const PORT = serverConfig.port || 4000
 
@@ -22,8 +22,8 @@ app.use(cors({
 app.use(express.static(path.join(__dirname, 'public')))
 
 // `/rocket` endpoint that gets launch data from API
-app.get('/rocket', (req, res) => {
-  LaunchJS.get().then(data => {
+app.get('/rocket/:next', (req, res) => {
+  LaunchJS.get(req.params.next).then(data => {
     res.send(data)
   })
     .catch(err => {
