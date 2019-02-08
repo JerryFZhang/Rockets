@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 
-//Load server config for future deployment
+// Load server config for future deployment
 var serverConfig = require('./config.js').serverConfig
 const PORT = serverConfig.port || 4000
 

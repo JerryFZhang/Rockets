@@ -1,6 +1,7 @@
 // /client/App.js
 import React, { Component } from 'react'
 import Linkable from './Linkable'
+import Vid from './Vid'
 import Moment from 'react-moment'
 import { Card, CardImg, CardText, CardBody, CardTitle, CardFooter} from 'reactstrap';
 class App extends Component {
@@ -62,15 +63,17 @@ class App extends Component {
         <CardBody>
        <CardTitle><b>#{index + 1}</b></CardTitle>
        <CardImg top width='100%' src={launch.rocket.imageURL} alt='Card image cap' />
-       <CardTitle className='pt-3'><b><Linkable props={launch}></Linkable></b></CardTitle>
+       <CardTitle className='pt-3'><b>{launch.name}</b>
+       </CardTitle>
        <CardText>
-            Rocket : <Linkable props={launch.rocket}></Linkable><br />
+            Rocket: <Linkable props={launch.rocket}></Linkable><br />
             Location: <Linkable props={launch.location}></Linkable><br />
             Launch Pad: <Linkable props={launch.location.pads[0]}></Linkable><br />
-            Agency:  <Linkable props={launch.lsp}></Linkable>
+            Agency: <Linkable props={launch.lsp}></Linkable><br />
+            <Vid props={launch}></Vid>
         </CardText>
-        <CardFooter className='text-muted'> Launch time:  <Moment format='lll'>{ launch.isostart }
-       </Moment> (<Moment fromNow>{ launch.isostart }</Moment>) </CardFooter>
+        <CardFooter className='text-muted text-12'> Launch time: <Moment format='lll'>{ launch.isostart }
+        </Moment> <span className="badge badge-dark"><Moment fromNow>{ launch.isostart }</Moment></span></CardFooter>
         </CardBody>
         </Card>
         </div>
