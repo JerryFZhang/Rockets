@@ -7,22 +7,17 @@ class LaunchJS {
   }
     
   timeout (milliseconds) {
-    if (milliseconds) {
-      this.timeoutVal = milliseconds
-    } else {
-      this.timeoutVal = null
-    }
+    (milliseconds) ? this.timeoutVal = milliseconds : this.timeoutVal = null
     return this
   }
     
-  _generateReqUrl () {
-    // Set API base URL
-    this.url = `https://launchlibrary.net/1.4/launch/next/20`
+  _generateReqUrl (number) {
+    (number) ? this.url = `https://launchlibrary.net/1.4/launch/next/` + number : this.url = `https://launchlibrary.net/1.4/launch/next/20` 
   }
    
-  get () {
+  get (number) {
     return new Promise((resolve, reject) => {
-      this._generateReqUrl()
+      this._generateReqUrl(number)
       req({
         url: this.url,
         json: true,

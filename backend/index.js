@@ -22,8 +22,8 @@ app.use(cors({
 app.use(express.static(path.join(__dirname, 'public')))
 
 // `/rocket` endpoint that gets launch data from API
-app.get('/rocket', (req, res) => {
-  LaunchJS.get().then(data => {
+app.get('/rocket/:next', (req, res) => {
+  LaunchJS.get(req.params.next).then(data => {
     res.send(data)
   })
     .catch(err => {

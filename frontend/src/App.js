@@ -39,7 +39,7 @@ class App extends Component {
 
   // fetch data from backend
   getData = () => {
-    fetch('http://localhost:4000/rocket', {
+    fetch('http://localhost:4000/rocket/20', {
         headers: {
             'Accept': 'application/json',
         },
