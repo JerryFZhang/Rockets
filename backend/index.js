@@ -1,5 +1,7 @@
 var express = require('express')
 var app = express()
+const Launch = require('launchlib-js')
+const LaunchJS = new Launch()
 
 // Load server config for future deployment
 var serverConfig = require('./config.js').serverConfig
@@ -7,10 +9,6 @@ const PORT = serverConfig.port || 4000
 
 var path = require('path')
 var cors = require('cors')
-
-// Load custom written library LaunchJS
-const Launch = require('./launch.js')
-const LaunchJS = new Launch()
 
 // use it before all route definitions
 app.use(cors({
@@ -23,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // `/rocket` endpoint that gets launch data from API
 app.get('/rocket/:next', (req, res) => {
-  LaunchJS.get(req.params.next).then(data => {
+  LaunchJS.get('getLaunches', req.params.next).then(data => {
     res.send(data)
   })
     .catch(err => {
