@@ -33,6 +33,7 @@ This a NodeJS + React App that displays space launch missions around the world.
 - [Moment.js](http://momentjs.com)
 - [LESS](http://lesscss.org)
 - [Launch Library API](https://launchlibrary.net)
+- [LaunchLib-js](https://github.com/JerryFZhang/LaunchLib-js/pulse)
 
 ### Hosting Platform
 - [Linode](https://www.linode.com)
